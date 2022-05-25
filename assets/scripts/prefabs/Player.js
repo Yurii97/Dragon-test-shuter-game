@@ -10,8 +10,19 @@ class Player extends Enemy {
       bullet: { delay: 500, texture: "fire", velocity: 750 },
       origin: { x: 1, y: 0.5 },
     });
+    const frames = this.scene.anims.generateFrameNames("dragon", {
+      prefix: "dragon",
+      start: 1,
+      end: 6,
+    });
+    this.scene.anims.create({
+      key: "fly",
+      frames,
+      frameRate: 10,
+      repeat: -1,
+    });
+    this.play("fly");
   }
-
   move() {
     this.body.setVelocity(0);
 
